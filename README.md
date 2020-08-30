@@ -1,5 +1,9 @@
 Welcome to Rock - Paper - Scissors!
 
+v1.2
+Added error messages for no input/cancel and misspelling. Only if a correct value is 
+entered the round will be played out now.
+
 v1.1
 Added a function which makes user-input case-sensitive.
 
@@ -11,7 +15,7 @@ Paper beats Rock and is beaten by Scissors.
 Scissors beat Paper and are beaten by Rock.
 All output is in the console. 
 After every round, you see what you and your opponent chose and the current score.
-At the end of the game you are informed about the final score an whether you won,
+At the end of the game you are informed about the final score and whether you won,
 lost or got a tie.
 If you want to play again, simply reload the page.
 Currently no error-catching is implemented and the input is case-sensitive! So pay

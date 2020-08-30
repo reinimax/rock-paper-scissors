@@ -19,18 +19,22 @@
             }
         }
 
-        console.log(computerPlay());
-
-
         function playSingleRound(playerSelection, computerSelection) {
             //Take what the player selected and what the computer selected.
             //Compare both selections.
             //Declare the winner.
+            console.log(playerSelection);
+            console.log(computerSelection);
         }
 
         function game() {
             //play a five round game, keep score, report winner/loser at the end.
+
+            //start with logging 1 round
+            playSingleRound(prompt("Choose \"Rock\", \"Paper\" or \"Scissors\"!"), computerPlay())
         }
+
+        game();
 
     </script>
 </body>

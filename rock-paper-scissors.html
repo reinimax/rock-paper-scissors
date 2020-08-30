@@ -55,9 +55,21 @@
             //play a five round game, keep score, report winner/loser at the end.
 
             //start with logging 1 round
-            console.log(playSingleRound(prompt("Choose \"Rock\", \"Paper\" or \"Scissors\"!"), computerPlay()));
+            for (i=1; i <=5; i++) {
+            console.log("Round " + i);
+            console.log(playSingleRound(prompt("Round " + i + "of 5. Choose \"Rock\", \"Paper\" or \"Scissors\"!"), computerPlay()));
             console.log("Player-Score: " + pointsPlayer);
             console.log("Computer-Score: " + pointsComputer);
+            }
+            console.log("The Game is finished!");
+            if (pointsPlayer === pointsComputer) {
+                console.log("It's a tie! Final score Player vs. Computer: " + pointsPlayer + "-" + pointsComputer);
+            } else if (pointsPlayer >= pointsComputer) {
+                console.log("Congratulations, you won! Final score Player vs. Computer: " + pointsPlayer + "-" + pointsComputer);
+            } else {
+                console.log("Sorry, you lost! Final score Player vs. Computer: " + pointsPlayer + "-" + pointsComputer);
+            }
+
         }
 
         game();

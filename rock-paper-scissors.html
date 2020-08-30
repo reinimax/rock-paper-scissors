@@ -32,7 +32,6 @@
 
         function playSingleRound(playerSelection, computerSelection) {
             //Take what the player selected and what the computer selected.
-            playerSelection = capitalize(playerSelection);
             console.log("Player chose " + playerSelection); 
             console.log("Computer chose " + computerSelection);
             //Compare both selections.
@@ -62,11 +61,12 @@
 
         function game() {
             //play a five round game, keep score, report winner/loser at the end.
-
-            //start with logging 1 round
             for (i=1; i <=5; i++) {
             console.log("Round " + i);
-            console.log(playSingleRound(prompt("Round " + i + "of 5. Choose \"Rock\", \"Paper\" or \"Scissors\"!"), computerPlay()));
+            //check first, if the user has entered a valid value
+            let userInput = prompt("Round " + i + "of 5. Choose \"Rock\", \"Paper\" or \"Scissors\"!");
+            userInput = capitalize(userInput);
+            console.log(playSingleRound(userInput, computerPlay()));
             console.log("Player-Score: " + pointsPlayer);
             console.log("Computer-Score: " + pointsComputer);
             }

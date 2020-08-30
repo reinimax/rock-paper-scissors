@@ -2,13 +2,23 @@
 <html>
 <head>
     <title>Rock Paper Scissors</title>
+    <meta charset="UTF-8">
 </head>
 <body>
     <script>
 
         function computerPlay() {
             //pick randomly between "Rock" "Paper" or "Scissor" and return the value.
+            let randomNum = Math.floor(Math.random()*3);
+            console.log(randomNum);
         }
+
+        computerPlay();
+        computerPlay();
+        computerPlay();
+        computerPlay();
+        computerPlay();
+        computerPlay();
 
         function playSingleRound(playerSelection, computerSelection) {
             //Take what the player selected and what the computer selected.

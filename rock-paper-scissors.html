@@ -10,6 +10,14 @@
             let pointsPlayer = 0;
             let pointsComputer = 0;
 
+            //copied my capitalize()-function from the previous lesson to make user-input case-insensitve :-D
+            function capitalize(text) {
+                text = text.toLowerCase();
+                let firstLetterCap = text.charAt(0).toUpperCase();
+                text = text.replace(text.charAt(0), firstLetterCap);
+                return text;
+            }
+        
         function computerPlay() {
             //pick randomly between "Rock" "Paper" or "Scissor" and return the value.
             let randomNum = Math.floor(Math.random()*3);
@@ -24,6 +32,7 @@
 
         function playSingleRound(playerSelection, computerSelection) {
             //Take what the player selected and what the computer selected.
+            playerSelection = capitalize(playerSelection);
             console.log("Player chose " + playerSelection); 
             console.log("Computer chose " + computerSelection);
             //Compare both selections.

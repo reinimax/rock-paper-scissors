@@ -1,5 +1,9 @@
 Welcome to Rock - Paper - Scissors!
 
+v1.1
+Added a function which makes user-input case-sensitive.
+
+v1.0
 The game is now basically working. You play one game of five rounds.
 Every round your input is asked by a prompt. The computer chooses randomly.
 Rock beats Scissors and is beaten by Paper.

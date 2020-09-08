@@ -17,31 +17,41 @@ const computerPlay = function () {
 
 function playSingleRound(playerSelection, computerSelection) {
     //Take what the player selected and what the computer selected.
-    console.log("Player chose " + playerSelection);
-    console.log("Computer chose " + computerSelection);
+    const log = document.querySelector("#log");
+    const message = document.createElement("p");
+    message.textContent = `Player chose ${playerSelection}, Computer chose ${computerSelection}.`
+
     //Compare both selections.
     if (playerSelection === computerSelection) {    //If playerSelection equals computerSelection it's a tie.
-        return "It's a tie!";
+        message.textContent += " It's a tie!";
     } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
         pointsPlayer += 1;
-        return "Rock beats Scissors. Player wins.";
+        message.textContent += " Rock beats Scissors. Player wins.";
     } else if (playerSelection === "Rock" && computerSelection === "Paper") {
         pointsComputer += 1;
-        return "Paper beats Rock. Computer wins.";
+        message.textContent += " Paper beats Rock. Computer wins.";
     } else if (playerSelection === "Paper" && computerSelection === "Rock") {
         pointsPlayer += 1;
-        return "Paper beats Rock. Player wins.";
+        message.textContent += " Paper beats Rock. Player wins.";
     } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
         pointsComputer += 1;
-        return "Scissors beat Paper. Computer wins.";
+        message.textContent += " Scissors beat Paper. Computer wins.";
     } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
         pointsPlayer += 1;
-        return "Scissors beats Paper. Player wins.";
+        message.textContent += " Scissors beats Paper. Player wins.";
     } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
         pointsComputer += 1;
-        return "Rock beats Scissors. Computer wins.";
+        message.textContent += " Rock beats Scissors. Computer wins.";
     }
+    updateScore();
+    log.appendChild(message);
+}
 
+function updateScore() {
+    const score = document.querySelector("#score");
+    score.textContent = `Score: Player: ${pointsPlayer} - Computer: ${pointsComputer}`;
+    if (pointsPlayer >= 5) score.textContent = `You won! (${pointsPlayer}:${pointsComputer})`;
+    if (pointsComputer >= 5) score.textContent = `Computer won! (${pointsPlayer}:${pointsComputer})`;
 }
 
 //Select the three buttons and add an eventlistener to each, play one round with player-input = id of the targeted button

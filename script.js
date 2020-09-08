@@ -2,13 +2,6 @@
 let pointsPlayer = 0;
 let pointsComputer = 0;
 
-//copied my capitalize()-function from the previous lesson to make user-input case-insensitve :-D
-function capitalize(text) {
-    text = text.toLowerCase();
-    let firstLetterCap = text.charAt(0).toUpperCase();
-    text = text.replace(text.charAt(0), firstLetterCap);
-    return text;
-}
 
 const computerPlay = function () {
     //pick randomly between "Rock" "Paper" or "Scissor" and return the value.
@@ -51,10 +44,6 @@ function playSingleRound(playerSelection, computerSelection) {
 
 }
 
-//this works so far
-const btnRock = document.querySelector("#rock");
-const btnPaper = document.querySelector("#paper");
-const btnScissors = document.querySelector("#scissors");
-btnRock.addEventListener("click", function() {playSingleRound("Rock", computerPlay() ); });
-btnPaper.addEventListener("click", function() {playSingleRound("Paper", computerPlay() ); });
-btnScissors.addEventListener("click", function() {playSingleRound("Scissors", computerPlay() ); });
+//Select the three buttons and add an eventlistener to each, play one round with player-input = id of the targeted button
+const selectbtn = document.querySelectorAll(".btnSelect");
+selectbtn.forEach(b => b.addEventListener("click", function(e){playSingleRound(`${e.target.id}`, computerPlay() );}));

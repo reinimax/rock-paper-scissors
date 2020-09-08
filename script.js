@@ -10,7 +10,7 @@ function capitalize(text) {
     return text;
 }
 
-function computerPlay() {
+const computerPlay = function () {
     //pick randomly between "Rock" "Paper" or "Scissor" and return the value.
     let randomNum = Math.floor(Math.random() * 3);
     if (randomNum === 0) {
@@ -51,39 +51,10 @@ function playSingleRound(playerSelection, computerSelection) {
 
 }
 
-function game() {
-    //play a five round game, keep score, report winner/loser at the end.
-    for (i = 1; i <= 5; i++) {
-        console.log("Round " + i);
-        //store user-input in a variable
-        let userInput = prompt("Round " + i + "of 5. Choose \"Rock\", \"Paper\" or \"Scissors\"!");
-
-        // and if it is not empty and the user didn't cancel make it case-insensitve.
-        if (!userInput) {
-            console.log("No input or cancelled");
-        } else {
-            userInput = capitalize(userInput);
-
-            //If spelled correctly go on with the round.
-            if (userInput === "Rock" || userInput === "Paper" || userInput === "Scissors") {
-                console.log(playSingleRound(userInput, computerPlay()));
-                console.log("Player-Score: " + pointsPlayer);
-                console.log("Computer-Score: " + pointsComputer);
-                // If not spelled right print error message.    
-            } else {
-                console.log("Wrong input! Only \"Rock\", \"Paper\" or \"Scissors\" will work.");
-            }
-        }
-    }
-    console.log("The Game is finished!");
-    if (pointsPlayer === pointsComputer) {
-        console.log("It's a tie! Final score Player vs. Computer: " + pointsPlayer + "-" + pointsComputer);
-    } else if (pointsPlayer >= pointsComputer) {
-        console.log("Congratulations, you won! Final score Player vs. Computer: " + pointsPlayer + "-" + pointsComputer);
-    } else {
-        console.log("Sorry, you lost! Final score Player vs. Computer: " + pointsPlayer + "-" + pointsComputer);
-    }
-
-}
-
-game();
+//this works so far
+const btnRock = document.querySelector("#rock");
+const btnPaper = document.querySelector("#paper");
+const btnScissors = document.querySelector("#scissors");
+btnRock.addEventListener("click", function() {playSingleRound("Rock", computerPlay() ); });
+btnPaper.addEventListener("click", function() {playSingleRound("Paper", computerPlay() ); });
+btnScissors.addEventListener("click", function() {playSingleRound("Scissors", computerPlay() ); });

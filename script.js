@@ -48,10 +48,13 @@ function playSingleRound(playerSelection, computerSelection) {
 }
 
 function updateScore() {
-    const score = document.querySelector("#score");
-    score.textContent = `Score: Player: ${pointsPlayer} - Computer: ${pointsComputer}`;
-    if (pointsPlayer >= 5) score.textContent = `You won! (${pointsPlayer}:${pointsComputer})`;
-    if (pointsComputer >= 5) score.textContent = `Computer won! (${pointsPlayer}:${pointsComputer})`;
+    const instructions = document.querySelector("#instructions");
+    const playerScore = document.querySelector("#player-score");
+    const computerScore = document.querySelector("#computer-score");
+    playerScore.textContent = `${pointsPlayer}`;
+    computerScore.textContent = `${pointsComputer}`;
+    if (pointsPlayer >= 5) instructions.textContent = `You won!`;
+    if (pointsComputer >= 5) instructions.textContent = `Computer won!`;
 }
 
 //Select the three buttons and add an eventlistener to each, play one round with player-input = id of the targeted button

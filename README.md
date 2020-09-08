@@ -1,5 +1,7 @@
 Welcome to Rock - Paper - Scissors!
 
+Link: https://reinimax.github.io/rock-paper-scissors/
+
 v1.2
 Added error messages for no input/cancel and misspelling. Only if a correct value is 
 entered the round will be played out now.

@@ -13,6 +13,15 @@ const log = document.querySelector("#log");
 const playerScore = document.querySelector("#player-score");
 const computerScore = document.querySelector("#computer-score");
 
+//add eventlistener for removing animation
+const playerScoreField = document.querySelector("#player-score-field");
+playerScoreField.addEventListener("animationend", function() {
+    playerScoreField.classList.remove("animated");
+});
+const computerScoreField = document.querySelector("#computer-score-field");
+computerScoreField.addEventListener("animationend", function() {
+    computerScoreField.classList.remove("animated");
+});
 
 const computerPlay = function () {
     //pick randomly between "Rock" "Paper" or "Scissor" and return the value.
@@ -34,30 +43,36 @@ function playSingleRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {    //If playerSelection equals computerSelection it's a tie.
     log.textContent += " It's a tie!";
     } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
-        pointsPlayer += 1;
-        const playerScoreField = document.querySelector("#player-score-field");
-        playerScoreField.addEventListener("animationend", function() {
-            playerScoreField.classList.remove("animated");
-        });
-        playerScoreField.classList.add("animated");
+        playerScored();
         log.textContent += " Rock beats Scissors. Player wins.";
     } else if (playerSelection === "Rock" && computerSelection === "Paper") {
-        pointsComputer += 1;
+        computerScored();
         log.textContent += " Paper beats Rock. Computer wins.";
     } else if (playerSelection === "Paper" && computerSelection === "Rock") {
-        pointsPlayer += 1;
+        playerScored();
         log.textContent += " Paper beats Rock. Player wins.";
     } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
-        pointsComputer += 1;
+        computerScored();
         log.textContent += " Scissors beat Paper. Computer wins.";
     } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
-        pointsPlayer += 1;
+        playerScored();
         log.textContent += " Scissors beats Paper. Player wins.";
     } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
-        pointsComputer += 1;
+        computerScored();
         log.textContent += " Rock beats Scissors. Computer wins.";
     }
+}
+
+function playerScored() {
+    pointsPlayer += 1;
     updateScore();
+    playerScoreField.classList.add("animated");
+}
+
+function computerScored() {
+    pointsComputer += 1;
+    updateScore();
+    computerScoreField.classList.add("animated");
 }
 
 function updateScore() {

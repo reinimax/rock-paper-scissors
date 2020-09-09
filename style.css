@@ -99,7 +99,7 @@ button:enabled:hover {
 
 .animated {
     animation-name: highlight-score;
-    animation-duration: 0.3s;
+    animation-duration: 0.5s;
 }
 
 @keyframes highlight-score {

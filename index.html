@@ -8,31 +8,35 @@
 <body>
     <!--html-elements-->
 <div id="super-container">
-    <h1>Rock Paper Scissors</h1>
+    <h1>Rock - Paper - Scissors</h1>
 
     <div id="container-score">
-        <div class="subcontainer-score">
+        <div class="subcontainer-score score-field">
             <div>Player:</div>
             <div id="player-score">0</div>
         </div>
         <div class="subcontainer-score">
             Score
         </div>
-        <div class="subcontainer-score">
+        <div class="subcontainer-score score-field">
             <div>Computer:</div>
             <div id="computer-score">0</div>
         </div>
     </div>
 
-    <div id="instructions">The first who gets 5 points wins.</div>
-    <div>
+    <div id="text-container">
+        <div id="instructions">The first who gets 5 points wins.</div>
+        <div id="log">Click "Start new Game and choose one option:</div>
+    </div>
+
+    <div id="button-container">
         <button class="btnSelect" id="Rock">Rock</button>
         <button class="btnSelect" id="Paper">Paper</button>
         <button class="btnSelect" id="Scissors">Scissors</button>
     </div>
-    <div id="log"></div>
+        
     <div>
-        <button>Play again</button>
+        <button id="start">Start new Game</button>
     </div>
 </div>
     <!--script-->

@@ -2,6 +2,17 @@
 let pointsPlayer = 0;
 let pointsComputer = 0;
 
+//disable buttons
+const selectbtn = document.querySelectorAll(".btnSelect");
+selectbtn.forEach(b => b.addEventListener("click", function(e){playSingleRound(`${e.target.id}`, computerPlay() );}));
+selectbtn.forEach(b => b.disabled = true);
+
+//variables for score and text
+const instructions = document.querySelector("#instructions");
+const log = document.querySelector("#log");
+const playerScore = document.querySelector("#player-score");
+const computerScore = document.querySelector("#computer-score");
+
 
 const computerPlay = function () {
     //pick randomly between "Rock" "Paper" or "Scissor" and return the value.
@@ -16,47 +27,67 @@ const computerPlay = function () {
 }
 
 function playSingleRound(playerSelection, computerSelection) {
-    //Take what the player selected and what the computer selected.
-    const log = document.querySelector("#log");
-    const message = document.createElement("p");
-    message.textContent = `Player chose ${playerSelection}, Computer chose ${computerSelection}.`
+    
+    log.textContent = `Player chose ${playerSelection}, Computer chose ${computerSelection}.`
 
     //Compare both selections.
     if (playerSelection === computerSelection) {    //If playerSelection equals computerSelection it's a tie.
-        message.textContent += " It's a tie!";
+    log.textContent += " It's a tie!";
     } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
         pointsPlayer += 1;
-        message.textContent += " Rock beats Scissors. Player wins.";
+        log.textContent += " Rock beats Scissors. Player wins.";
     } else if (playerSelection === "Rock" && computerSelection === "Paper") {
         pointsComputer += 1;
-        message.textContent += " Paper beats Rock. Computer wins.";
+        log.textContent += " Paper beats Rock. Computer wins.";
     } else if (playerSelection === "Paper" && computerSelection === "Rock") {
         pointsPlayer += 1;
-        message.textContent += " Paper beats Rock. Player wins.";
+        log.textContent += " Paper beats Rock. Player wins.";
     } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
         pointsComputer += 1;
-        message.textContent += " Scissors beat Paper. Computer wins.";
+        log.textContent += " Scissors beat Paper. Computer wins.";
     } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
         pointsPlayer += 1;
-        message.textContent += " Scissors beats Paper. Player wins.";
+        log.textContent += " Scissors beats Paper. Player wins.";
     } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
         pointsComputer += 1;
-        message.textContent += " Rock beats Scissors. Computer wins.";
+        log.textContent += " Rock beats Scissors. Computer wins.";
     }
     updateScore();
-    log.appendChild(message);
 }
 
 function updateScore() {
-    const instructions = document.querySelector("#instructions");
-    const playerScore = document.querySelector("#player-score");
-    const computerScore = document.querySelector("#computer-score");
     playerScore.textContent = `${pointsPlayer}`;
     computerScore.textContent = `${pointsComputer}`;
-    if (pointsPlayer >= 5) instructions.textContent = `You won!`;
-    if (pointsComputer >= 5) instructions.textContent = `Computer won!`;
+
+    if (pointsPlayer >= 5) {
+        instructions.textContent = `You won!`;
+        endGame();
+    }
+    
+    if (pointsComputer >= 5) {
+        instructions.textContent = `Computer won!`;
+        endGame();
+    }
 }
 
-//Select the three buttons and add an eventlistener to each, play one round with player-input = id of the targeted button
-const selectbtn = document.querySelectorAll(".btnSelect");
-selectbtn.forEach(b => b.addEventListener("click", function(e){playSingleRound(`${e.target.id}`, computerPlay() );}));
+function endGame() {
+    selectbtn.forEach(b => b.disabled = true);
+}
+
+function startGame() {
+    //Select the three buttons and add an eventlistener to each, play one round with player-input = id of the targeted button
+    selectbtn.forEach(b => b.disabled = false);
+
+    //clear score and log
+    playerScore.textContent = "0";
+    computerScore.textContent = "0";
+    instructions.textContent = "The first who gets 5 points wins.";
+    log.textContent = 'Choose one option:';
+
+    //reset points
+    pointsPlayer = 0;
+    pointsComputer = 0;
+}
+
+const start = document.querySelector("#start");
+start.addEventListener("click", startGame);

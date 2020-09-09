@@ -2,10 +2,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: mediumseagreen;
+    margin-top: 15vh;
+    width: 70vw;
+    height: 70vh;
 }
 #container-score {
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: center;
 }
 
@@ -13,4 +18,27 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 30px 5vw;
+}
+
+.score-field {
+    border: 5px double mediumaquamarine;
+    padding: 30px;
+}
+
+#text-container {
+    margin-bottom: 30px;
+}
+
+button {
+    width: 7vw;
+    height: 3.5vh;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    background-color: mediumaquamarine;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
 }

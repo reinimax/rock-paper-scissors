@@ -95,3 +95,17 @@ button:disabled {
 button:enabled:hover {
     font-size: 16px;
 }
+
+
+.animated {
+    animation-name: highlight-score;
+    animation-duration: 0.3s;
+}
+
+@keyframes highlight-score {
+    50% {
+        scale: 1.05;
+        color: goldenrod;
+        border-color: goldenrod;
+    }
+}

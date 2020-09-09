@@ -35,6 +35,11 @@ function playSingleRound(playerSelection, computerSelection) {
     log.textContent += " It's a tie!";
     } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
         pointsPlayer += 1;
+        const playerScoreField = document.querySelector("#player-score-field");
+        playerScoreField.addEventListener("animationend", function() {
+            playerScoreField.classList.remove("animated");
+        });
+        playerScoreField.classList.add("animated");
         log.textContent += " Rock beats Scissors. Player wins.";
     } else if (playerSelection === "Rock" && computerSelection === "Paper") {
         pointsComputer += 1;
